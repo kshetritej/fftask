@@ -22,6 +22,6 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.button');
+        return view('components.ui.button');
     }
 }
