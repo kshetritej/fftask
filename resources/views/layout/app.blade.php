@@ -12,8 +12,11 @@
 </head>
 
 <body>
-    <header class="container">
+    <nav>
         @include('navbar')
+    </nav>
+    <header class="container">
+        @yield('header')
     </header>
 
     <main>
