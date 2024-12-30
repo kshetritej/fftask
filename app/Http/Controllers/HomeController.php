@@ -6,6 +6,41 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $categories = [
+            [
+                "name" => "Men",
+                "desc" => "Discover our latest men's collection featuring comfortable knitwear, stylish outerwear, and essential basics.",
+                "image" => "https://plus.unsplash.com/premium_photo-1669850858863-6fe7bf233483?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ],
+            [
+                "name" => "Women",
+                "desc" => "Explore our women's collection with contemporary designs, luxurious materials, and versatile pieces for every occasion.",
+                "image" => "https://plus.unsplash.com/premium_photo-1689371956254-1a8adca96b78?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ],
+            [
+                "name" => "Kids",
+                "desc" => "Browse our kids' collection with comfortable, playful, and durable clothing perfect for active children.",
+                "image" => "https://plus.unsplash.com/premium_photo-1697612942566-e0c243ab512c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ],
+        ];
+        $faqs = [
+            [
+                "question" => "What is the return policy?",
+                "answer" => "We accept returns within 30 days of purchase. Please note that the item must be returned in new condition with original packaging.",
+            ],
+            [
+                "question" => "Do you offer gift cards?",
+                "answer" => "Yes, we offer gift cards for purchase online and in-store.",
+            ],
+            [
+                "question" => "Can I track my order?",
+                "answer" => "Yes, you can track your order by logging into your account or by using the tracking link provided in your shipping confirmation email.",
+            ],
+            [
+                "question" => "What payment methods do you accept?",
+                "answer" => "We accept all major credit cards, PayPal, and Apple Pay.",
+            ],
+        ];
         $products = [
             [
                 "name" => "Classic Leather Jacket",
@@ -66,6 +101,6 @@ class HomeController extends Controller
                 "url" => "/gift",
             ]
         ];
-        return view('layouts.app', compact('products', 'navItems'));
+        return view('layouts.app', compact('products', 'navItems', 'faqs', 'categories'));
     }
 }

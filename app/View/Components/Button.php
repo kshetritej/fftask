@@ -11,11 +11,11 @@ class Button extends Component
     public $text;
     public $type;
     public $class;
-    public function __construct($text, $type , $class='')
+    public function __construct($text, $type, $class = '')
     {
         $this->text = $text;
         $this->type = $type;
-        $this->class = "border border-white px-4 py-2 rounded-full " .$class; 
+        $this->class = "border border-white px-4 py-2 rounded-full " . $class;
     }
     /**
      * Get the view / contents that represent the component.

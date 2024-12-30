@@ -12,12 +12,14 @@ class Card extends Component
     public $description;
     public $class;
     public $image;
-    public function __construct($heading, $description, $class = '', $image = '')
+    public $price;
+    public function __construct($heading, $price, $description, $class = '', $image = '')
     {
         $this->heading = $heading;
         $this->description = $description;
         $this->class = "max-w-[420px] " .$class; 
         $this->image = $image;
+        $this->price= $price;
     }
     /**
      * Get the view / contents that represent the component.

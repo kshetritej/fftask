@@ -1,30 +1,64 @@
-    <nav class="navbar ">
-        <div class="bg-black p-4 text-white text-center">Free Delivery inside Pokhara Valley!</div>
-        <div class="flex justify-between items-center p-4 container mx-auto">
-            <div class="nav hidden sm:flex">
-                <ul class="flex  gap-4 font-bold">
-                    @foreach ($navItems as $item)
-                        <li><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
-                    @endforeach
-                    {{-- <li><a href="{{$item['url']}}">{{$item['name']}}</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">New & Featured</a></li>
-                    <li><a href="#">Gift</a></li> --}}
-                </ul>
-            </div>
-
-            <div class="logo">
-                <span class="text-3xl font-black text-center">
-                    TULIP
-                </span>
-            </div>
-            <div class="ctas flex gap-8 items-center ">
-                {{-- <x-heroicon-o-bars-3 class="size-6" /> --}}
-                <x-heroicon-o-magnifying-glass class="size-6" />
-                <x-heroicon-o-shopping-bag class="size-6" />
-                <span>Login</span>
-            </div>
+<nav class="navbar">
+    <div class="bg-black p-4 text-white text-center">
+        Free Delivery inside Pokhara Valley!
+    </div>
+    
+    <!--navigations -->
+    <div class="flex justify-between items-center p-4 container mx-auto">
+        <div id="hamburger" class="cursor-pointer sm:hidden  flex items-center gap-1">
+            <x-heroicon-o-bars-3 class="size-8" />
         </div>
-    </nav>
+
+        <div class="logo">
+            <span class="text-3xl font-black text-center">
+                TULIP
+            </span>
+        </div>
+        <div id="nav-menu" class="nav hidden sm:flex">
+            <ul class="flex flex-col sm:flex-row gap-4 font-bold bg-white w-full">
+                @foreach ($navItems as $item)
+                    <li><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="ctas flex gap-8 items-center">
+            <x-heroicon-o-magnifying-glass class="size-6" />
+            <x-heroicon-o-shopping-bag class="size-6" />
+            <span>Login</span>
+        </div>
+    </div>
+
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white text-black transform -translate-x-full transition-transform sm:hidden z-50">
+        <div class="p-4 flex justify-between items-center">
+            <span class="text-3xl font-black">TULIP</span>
+            <button id="close-menu" class="focus:outline-none" aria-label="Close navigation">
+                <x-heroicon-o-x-mark class="size-6" />
+            </button>
+        </div>
+        <ul class="mt-8 space-y-4 p-4 text-lg">
+            @foreach ($navItems as $item)
+                <li>
+                    <a href="{{ $item['url'] }}" class="block hover:text-red-900">{{ $item['name'] }}</a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</nav>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-x-full');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+    });
+</script>

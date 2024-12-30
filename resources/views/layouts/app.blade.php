@@ -15,7 +15,12 @@
     </header>
     <main class="container mx-auto ">
         <x-product-catalog :products="$products" />
+        <div class="my-10">
+        <x-category :categories="$categories"/>
+        </div>
+        <x-faq :faqs="$faqs" />
     </main>
+    <x-footer :navItems="$navItems" />
 </body>
 
 </html>
