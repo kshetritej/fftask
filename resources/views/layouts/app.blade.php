@@ -4,23 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'TULIP - Shop More') - @lang('app.name')</title>
+    <title>@yield('title', 'TULIP - Shop More')</title>
     @vite('resources/css/app.css')
 </head>
 
 <body>
     <header>
-        <x-navbar :navItems="$navItems" />
-        <x-header />
+        <x-shared.navbar :navItems="$navItems" />
+        <x-section.header />
     </header>
     <main class="container mx-auto ">
-        <x-product-catalog :products="$products" />
+        <x-section.product-catalog :products="$products" />
         <div class="my-10">
-        <x-category :categories="$categories"/>
+        <x-section.category :categories="$categories"/>
         </div>
-        <x-faq :faqs="$faqs" />
+        <x-section.faq :faqs="$faqs" />
     </main>
-    <x-footer :navItems="$navItems" />
+    <x-section.footer :navItems="$navItems" />
 </body>
 
 </html>
